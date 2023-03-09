@@ -1,0 +1,19 @@
+{{define "content"}}
+    <a href="/">Home</a>
+
+    <form action="/post" method="post">
+        board: <input type="text" name="board" /><br />
+        content: <textarea name="content" id="text" oninput="update()"></textarea><br />
+        <input type="submit" />
+    </form>
+
+    <div id="preview"></div>
+
+    <script>
+        function update() {
+            var text = document.getElementById("text").value;
+            var preview = document.getElementById("preview");
+            preview.innerHTML = marked.parse(text)
+        }
+    </script>
+{{end}}

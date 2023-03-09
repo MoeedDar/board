@@ -1,0 +1,32 @@
+{{define "content"}}
+    <style>
+        .post {
+            border: 2px solid;
+            margin: 8px 4px 8px 4px;
+            padding: 4px;
+            max-width: 480px;
+        }
+
+        .timestamp {
+            margin-top: 8px;
+        }
+    </style>
+
+    <a href="/">Home</a>
+
+    <h1>{{.Title}}</h1>
+
+    {{range .Posts}}
+        <div class="post">
+            <div class="content">{{.Content}}</div>
+            <div class="timestamp">{{.Timestamp}}</div>
+        </div>
+    {{end}}
+
+    <script>
+        let elements = document.getElementsByClassName("content");
+        for (let element of elements)
+            element.innerHTML = marked.parse(element.textContent)
+    </script>
+    
+{{end}}

@@ -1,0 +1,11 @@
+{{define "content"}}
+    <h1>board</h1>
+    <a href="/post">Create a post</a>
+    <ul>
+        {{range .}}
+            <li>
+                <a href="/b/{{.}}">{{.}}</a>
+            </li>
+        {{end}}
+    </ul>
+{{end}}
